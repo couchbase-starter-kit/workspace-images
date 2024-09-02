@@ -3,8 +3,13 @@ FROM ${base}
 
 ARG RUST_VERSION
 
-USER gitpod
+USER root
+### base ###
+RUN yes | unminimize \
+    && install-packages librust-openssl-sys-dev librust-openssl-probe-dev librust-openssl-dev
+        
 
+USER gitpod
 # Dazzle does not rebuild a layer until one of its lines are changed. Increase this counter to rebuild this layer.
 ENV TRIGGER_REBUILD=7
 ENV RUST_VERSION=${RUST_VERSION}
@@ -18,5 +23,11 @@ RUN curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path --default-too
                         'mkdir -m 0755 -p "$CARGO_HOME/bin" 2>/dev/null' \
                         'export PATH=$CARGO_HOME/bin:$PATH' \
                         'test ! -e "$CARGO_HOME/bin/rustup" && mv "$(command -v rustup)" "$CARGO_HOME/bin"' > $HOME/.bashrc.d/80-rust \
-    && cargo install cargo-watch cargo-edit cargo-workspaces \
+    && cargo install cargo-watch cargo-edit cargo-workspaces wit-deps-cli wit-bindgen-cli  wit-bindgen-wrpc-cli \
+    && cargo install --git https://github.com/couchbaselabs/couchbase-shell \
+    && rustup target add wasm32-wasi \
     && rm -rf "$HOME/.cargo/registry" # This registry cache is now useless as we change the CARGO_HOME path to `/workspace`
+
+RUN git clone https://github.com/wasmCloud/wasmCloud/ && cd wasmCloud/crates/secrets-nats-kv && cargo install --path . && rm -rf ../../../wasmCloud
+
+COPY cbshconfig /home/gitpod/.cbsh/config

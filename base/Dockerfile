@@ -1,7 +1,7 @@
-FROM buildpack-deps:jammy@sha256:f94d4ac32b86b5e47c8309b8bde444d2b1ac185c515ee28ff4ebad588b0f21a5
+FROM couchbase/server-sandbox:7.6.3
 
 # Dazzle does not rebuild a layer until one of its lines are changed. Increase this counter to rebuild this layer.
-ENV TRIGGER_REBUILD=1
+ENV TRIGGER_REBUILD=2
 
 COPY install-packages upgrade-packages /usr/bin/
 
@@ -32,6 +32,12 @@ RUN yes | unminimize \
         ssl-cert \
         fish \
         zsh \
+        gpg \
+        gpg-agent \
+        libncurses5-dev \
+        libncursesw5-dev \
+        curl \
+        clang \
     && locale-gen en_US.UTF-8
 
 ENV LANG=en_US.UTF-8

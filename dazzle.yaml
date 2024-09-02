@@ -5,6 +5,7 @@ combiner:
         - dep-cacert-update
         - tool-docker
         - tool-tailscale
+        - lang-rust:1
     - name: gitpod-dev
       ref:
       - base
@@ -160,21 +161,12 @@ combiner:
         - full
       chunks:
         - tool-dotnet:8
-    - name: postgres
+    - name: wash
       ref:
-      - full
+      - base
       chunks:
-        - tool-postgresql
-    - name: mysql
-      ref:
-      - full
-      chunks:
-        - tool-mysql
-    - name: mongodb
-      ref:
-      - full
-      chunks:
-        - tool-mongodb
+        - lang-go:1.23
+        - tool-wash
     - name: java-11
       ref:
       - base
@@ -190,36 +182,6 @@ combiner:
       - base
       chunks:
         - lang-java:21
-    - name: yugabytedb
-      ref:
-      - base
-      chunks:
-        - lang-c
-        - lang-clojure
-        - lang-go:1.23
-        - lang-java:11
-        - lang-node:20
-        - lang-ruby:3.2
-        - lang-rust:1
-        - tool-brew
-        - tool-nginx
-        - tool-nix:2
-        - tool-yugabytedb:2.18
-    - name: yugabytedb-preview
-      ref:
-      - base
-      chunks:
-        - lang-c
-        - lang-clojure
-        - lang-go:1.23
-        - lang-java:11
-        - lang-node:20
-        - lang-ruby:3.2
-        - lang-rust:1
-        - tool-brew
-        - tool-nginx
-        - tool-nix:2
-        - tool-yugabytedb:2.19
     - name: bun
       ref:
       - base
