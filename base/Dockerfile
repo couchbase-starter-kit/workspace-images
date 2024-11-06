@@ -13,6 +13,7 @@ RUN yes | unminimize \
         bash-completion \
         build-essential \
         ninja-build \
+        clang \
         htop \
         iputils-ping \
         jq \
@@ -38,6 +39,7 @@ RUN yes | unminimize \
         libncursesw5-dev \
         curl \
         clang \
+        rlwrap \
     && locale-gen en_US.UTF-8
 
 ENV LANG=en_US.UTF-8

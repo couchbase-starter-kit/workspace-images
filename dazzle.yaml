@@ -13,7 +13,7 @@ combiner:
         - lang-c
         - lang-go:1.23
         - lang-java:11
-        - lang-node:20
+        - lang-node:22
         - tool-brew
     - name: c
       ref:
@@ -38,7 +38,7 @@ combiner:
         - lang-clojure
         - lang-go:1.23
         - lang-java:11
-        - lang-node:20
+        - lang-node:22
         - lang-python:3.12
         - lang-ruby:3.2
         - lang-rust:1
@@ -65,13 +65,13 @@ combiner:
       ref:
       - base
       chunks:
-        - lang-node:22
+        - lang-node:23
         - tool-chrome
     - name: node-lts
       ref:
       - base
       chunks:
-        - lang-node:20
+        - lang-node:22
         - tool-chrome
     - name: node-18
       ref:
@@ -91,6 +91,22 @@ combiner:
       chunks:
         - lang-node:22
         - tool-chrome
+    - name: node-23
+      ref:
+      - base
+      chunks:
+        - lang-node:23
+        - tool-chrome
+    - name: python
+      ref:
+      - base
+      chunks:
+        - lang-python:3.13
+    - name: python-3.13
+      ref:
+      - base
+      chunks:
+        - lang-python:3.13
     - name: python-3.12
       ref:
       - base
@@ -111,11 +127,6 @@ combiner:
       - base
       chunks:
         - lang-python:3.9
-    - name: python-3.8
-      ref:
-      - base
-      chunks:
-        - lang-python:3.8
     - name: ruby-3.1
       ref:
       - base
@@ -151,11 +162,6 @@ combiner:
         - full
       chunks:
         - tool-dotnet:6
-    - name: dotnet-7
-      ref:
-        - full
-      chunks:
-        - tool-dotnet:7
     - name: dotnet-8
       ref:
         - full

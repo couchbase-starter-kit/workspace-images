@@ -2,6 +2,25 @@
 
 A curated, chronologically ordered list of notable changes in [Gitpod's default workspace images](https://hub.docker.com/u/gitpod).
 
+## 2024-10-31 🎃
+
+- Bump the `workspace-node-lts` image to Node `22.11.0`
+- Bump the `workspace-node` image to Node `23.1.0`
+- Introduce `workspace-node-23`
+
+## 2024-10-22
+
+- Deprecate `workspace-python-3.8`
+- Introduce `workspace-python-3.13`
+
+## 2024-10-21
+
+- Bump Rust to `1.82.0`
+
+## 2024-09-09
+
+- Remove dotnet 7 as a maintained image, it is no longer supported. Users requiring dotnet 7 are encouraged to do manage a custom image instead.
+
 ## 2024-08-15
 
 - Bump Go to `1.23.0`
