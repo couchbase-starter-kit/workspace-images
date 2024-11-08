@@ -173,6 +173,7 @@ combiner:
       chunks:
         - lang-go:1.23
         - tool-wash
+        - tool-tinygo
     - name: java-11
       ref:
       - base
