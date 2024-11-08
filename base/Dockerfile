@@ -84,3 +84,12 @@ RUN sudo echo "Running 'sudo' for Gitpod: success" && \
 
 # Custom PATH additions
 ENV PATH=$HOME/.local/bin:/usr/games:$PATH
+# Local Couchbase Default Env Variables
+ENV COUCHBASE_CONNECTION_STRING="couchbase://localhost"
+ENV COUCHBASE_USERNAME="Administrator"
+ENV COUCHBASE_PASSWORD="password"
+ENV COUCHBASE_USE_CAPELLA=true
+ENV COUCHBASE_DEFAULT_BUCKET="default"
+ENV COUCHBASE_DEFAULT_SCOPE="_default"
+ENV COUCHBASE_DEFAULT_COLLECTION="_default"
+ENV COUCHBASE_OTLP_ENABLED=false

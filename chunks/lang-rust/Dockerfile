@@ -23,9 +23,9 @@ RUN curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path --default-too
                         'mkdir -m 0755 -p "$CARGO_HOME/bin" 2>/dev/null' \
                         'export PATH=$CARGO_HOME/bin:$PATH' \
                         'test ! -e "$CARGO_HOME/bin/rustup" && mv "$(command -v rustup)" "$CARGO_HOME/bin"' > $HOME/.bashrc.d/80-rust \
-    && cargo install cargo-watch cargo-edit cargo-workspaces wit-deps-cli wit-bindgen-cli  wit-bindgen-wrpc-cli \
+    && cargo install cargo-watch cargo-edit cargo-workspaces wit-deps-cli wit-bindgen-cli wrpc wasm-tools \
     && cargo install --git https://github.com/couchbaselabs/couchbase-shell \
-    && rustup target add wasm32-wasi \
+    && rustup target add wasm32-wasip2 \
     && rm -rf "$HOME/.cargo/registry" # This registry cache is now useless as we change the CARGO_HOME path to `/workspace`
 
 RUN git clone https://github.com/wasmCloud/wasmCloud/ && cd wasmCloud/crates/secrets-nats-kv && cargo install --path . && rm -rf ../../../wasmCloud
